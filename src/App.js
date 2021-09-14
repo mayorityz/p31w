@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./Pages/Components/Footer";
+import Navbar from "./Pages/Components/Navbar";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 function App() {
+  const { path } = useRouteMatch();
+  alert(path);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <Navbar />
+      <Switch>
+        <Route path={path}>
+          <h3>Home</h3>
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }
